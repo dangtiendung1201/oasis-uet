@@ -29,23 +29,14 @@ public class Student {
     }
 
     public void setId(String id) {
-        if (id == null) {
-            return;
-        }
         this.id = id;
     }
 
     public void setGroup(String group) {
-        if (group == null) {
-            return;
-        }
         this.group = group;
     }
 
     public void setEmail(String email) {
-        if (email == null) {
-            return;
-        }
         this.email = email;
     }
 
