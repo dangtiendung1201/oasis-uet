@@ -6,7 +6,7 @@ public class Student {
     private String group;
     private String email;
 
-    // TODO: khai bao cac phuong thuc getter, setter cho Student
+    // TODO: khai bao cac phuong thuc getter cho Student
     public String getName() {
         return name;
     }
@@ -23,6 +23,7 @@ public class Student {
         return email;
     }
 
+    // TODO: khai bao cac phuong thuc setter cho Student
     public void setName(String name) {
         this.name = name;
     }
@@ -49,7 +50,7 @@ public class Student {
     }
 
     /**
-     * Constructor 1
+     * Constructor 1.
      */
     Student() {
         this.name = "Student";
@@ -59,11 +60,7 @@ public class Student {
     }
 
     /**
-     * Constructor 2
-     * 
-     * @param n
-     * @param sid
-     * @param em
+     * Constructor 2.
      */
     Student(String name, String id, String email) {
         this.name = name;
@@ -73,9 +70,7 @@ public class Student {
     }
 
     /**
-     * Constructor 3
-     * 
-     * @param s
+     * Constructor 3.
      */
     Student(Student s) {
         this.name = s.name;
@@ -85,7 +80,7 @@ public class Student {
     }
     
     /**
-     * Constructor 4
+     * Constructor 4.
      */
     Student(String name, String id, String group, String email) {
         this.name = name;
@@ -94,6 +89,9 @@ public class Student {
         this.email = email;
     }
 
+    /**
+     * Get student's info.
+     */
     String getInfo() {
         return this.name + " - " + this.id + " - " + this.group + " - " + this.email;
     }
