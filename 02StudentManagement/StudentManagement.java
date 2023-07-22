@@ -69,6 +69,9 @@ public class StudentManagement {
         }
     }
 
+    /**
+     * Main function.
+     */
     public static void main(String[] args) {
         StudentManagement sm = new StudentManagement();
         sm.addStudent(new Student("Nguyen Van An", "17020001", "K62CC", "17020001@vnu.edu.vn"));
