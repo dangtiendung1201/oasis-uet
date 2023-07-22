@@ -2,7 +2,7 @@ public class StudentManagement {
 
     // TODO: khai bao thuoc tinh students la array chua cac doi tuong thuoc lop
     // Student (max. 100)
-    private final int MaxStudents = 100;
+    static final int MaxStudents = 100;
     private Student[] students = new Student[MaxStudents];
     private int numStudents = 0;
     private String[] groups = new String[MaxStudents];
