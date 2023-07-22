@@ -68,6 +68,7 @@ public class Student {
     Student(String name, String id, String email) {
         this.name = name;
         this.id = id;
+        this.group = "K62CB";
         this.email = email;
     }
 
