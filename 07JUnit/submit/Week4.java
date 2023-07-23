@@ -23,15 +23,15 @@ public class Week4 {
     }
 
     public static String calculateBMI(double weight, double height) {
-        // Tinh BMI
-        double bmi = weight / (height * height);
+        // Tinh BMI round to 1 digit
+        double bmi = Math.round(weight / (height * height) * 10) / 10.0;
         String result = "";
 
         if (bmi < 18.5) {
             result = "Thiếu cân";
-        } else if (bmi >= 18.5 && bmi <= 22.9) {
+        } else if (bmi <= 22.9) {
             result = "Bình thường";
-        } else if (bmi >= 23 && bmi <= 24.9) {
+        } else if (bmi <= 24.9) {
             result = "Thừa cân";
         } else {
             result = "Béo phì";
