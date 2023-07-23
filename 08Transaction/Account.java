@@ -29,8 +29,6 @@ public class Account {
         } else {
             balance += amount;
             transitionList.add(new Transaction(Transaction.DEPOSIT, amount, balance));
-            System.out.println("Nap tien $" + String.format("%.2f", amount) + ". So du luc nay: $"
-                    + String.format("%.2f", balance) + ".");
         }
     }
 
@@ -45,8 +43,6 @@ public class Account {
         } else {
             balance -= amount;
             transitionList.add(new Transaction(Transaction.WITHDRAW, amount, balance));
-            System.out.println("Rut tien $" + String.format("%.2f", amount) + ". So du luc nay: $"
-                    + String.format("%.2f", balance) + ".");
         }
     }
 
