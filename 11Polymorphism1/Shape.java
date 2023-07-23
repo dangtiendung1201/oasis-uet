@@ -1,13 +1,17 @@
-public class Shape {
+import java.lang.AssertionError;
+import java.lang.Math;
+
+public abstract class Shape {
     protected String color;
     protected boolean filled;
+    protected AssertionError error = new AssertionError("Not implemented");
 
     /**
-     * Construcor
+     * Construcor.
      */
     public Shape() {
-        color = "red";
-        filled = true;
+        color = null;
+        filled = false;
     }
 
     public Shape(String color, boolean filled) {
@@ -22,7 +26,7 @@ public class Shape {
         return color;
     }
 
-    public boolean getFilled() {
+    public boolean isFilled() {
         return filled;
     }
 
@@ -38,10 +42,24 @@ public class Shape {
     }
 
     /**
+     * Calculate.
+     */
+    public abstract double getArea();
+
+    public abstract double getPerimeter();
+    
+    public abstract double getSide();
+    
+    public abstract double getRadius();
+    
+    public abstract double getWidth();
+    
+    public abstract double getLength();
+    
+    /**
      * Print.
      */
     public String toString() {
-        // Shape[color=?,filled=?]
         return ("Shape[color=" + color + ",filled=" + filled + "]");
     }
 

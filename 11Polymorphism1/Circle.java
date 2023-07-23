@@ -1,5 +1,3 @@
-import java.lang.Math;
-
 public class Circle extends Shape {
     protected double radius;
 
@@ -46,15 +44,31 @@ public class Circle extends Shape {
      * Calculate perimeter.
      */
     public double getPerimeter() {
-        return 2 * radius * Math.PI;
+        return 2.0 * Math.PI * radius;
+    }
+
+    /**
+     * Error
+     */
+    public double getSide() {
+        throw error;
+    }
+
+    public double getWidth() {
+        throw error;
+    }
+
+    public double getLength() {
+        throw error;
     }
 
     /**
      * Print.
      */
     public String toString() {
-        // Circle[radius=?,color=?,filled=?]
-        return ("Circle[" + "radius=" + radius + "," + super.toString() + "]");
+        return ("Circle[" + "radius=" + radius
+        + ",color=" + super.color + ",filled=" + super.filled + "]");
     }
 
 }
+ 

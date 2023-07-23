@@ -60,9 +60,22 @@ public class Rectangle extends Shape {
     }
 
     /**
+     * Error
+     */
+    public double getRadius() {
+        throw error;
+    }
+
+    public double getSide() {
+        throw error;
+    }
+
+
+    /**
      * Print.
      */
     public String toString() {
-        return ("Rectangle[" + "width=" + width + ",length=" + length + "," + super.toString() + "]");
+        return ("Rectangle[width=" + width + ",length=" + length
+                + ",color=" + super.color + ",filled=" + super.filled + "]");
     }
 }

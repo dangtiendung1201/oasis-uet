@@ -29,11 +29,29 @@ public class Square extends Rectangle {
         length = side;
     }
 
+    public void setWidth(double side) {
+        width = side;
+        length = side;
+    }
+
+    public void setLength(double side) {
+        width = side;
+        length = side;
+    }
+
+    /**
+     * Error
+     */
+    public double getRadius() {
+        throw error;
+    }
+
     /**
      * Print.
      */
     public String toString() {
-        return ("Square[" + "side=" + width + "," + super.toString() + "]");
+        return ("Square[side=" + super.width
+                + ",color=" + super.color + ",filled=" + super.filled + "]");
     }
 
 }
