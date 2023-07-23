@@ -47,7 +47,7 @@ public class Student extends Person {
      * Print.
      */
     public String toString() {
-        return ("Student[" + super.toString() + ",program=" +
-                program + ",year=" + year + ",fee=" + fee + "]");
+        return ("Student[" + super.toString() + ",program="
+                + program + ",year=" + year + ",fee=" + fee + "]");
     }
 }
