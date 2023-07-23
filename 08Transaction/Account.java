@@ -16,7 +16,8 @@ public class Account {
                 System.out.print("Rut tien $");
             }
             System.out.print(String.format("%.2f", transitionList.get(i).getAmount()) + ". ");
-            System.out.print("So du luc nay: $" + String.format("%.2f", transitionList.get(i).getBalance()) + ".\n");
+            System.out.print("So du luc nay: $" + String.format("%.2f",
+                    transitionList.get(i).getBalance()) + ".\n");
         }
     }
 
