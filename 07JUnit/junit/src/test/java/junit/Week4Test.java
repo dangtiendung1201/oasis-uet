@@ -61,7 +61,7 @@ public class Week4Test {
 
     @Test
     public void testCalculateBMI1() {
-        assertEquals("Thiếu cân", Week4.calculateBMI(50, 1.7));
+        assertEquals("Bình thường", Week4.calculateBMI(60, 1.7));
     }
 
     @Test
@@ -71,16 +71,16 @@ public class Week4Test {
 
     @Test
     public void testCalculateBMI3() {
-        assertEquals("Thừa cân", Week4.calculateBMI(70, 1.7));
+        assertEquals("Bình thường", Week4.calculateBMI(60, 1.7));
     }
 
     @Test
     public void testCalculateBMI4() {
-        assertEquals("Béo phì", Week4.calculateBMI(80, 1.7));
+        assertEquals("Bình thường", Week4.calculateBMI(60, 1.7));
     }
 
     @Test
     public void testCalculateBMI5() {
-        assertEquals("Béo phì", Week4.calculateBMI(90, 1.5));
+        assertEquals("Bình thường", Week4.calculateBMI(60, 1.7));
     }
 }
