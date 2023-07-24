@@ -22,11 +22,12 @@ public class Layer {
       throw new NullPointerException("shapes is null");
     }
 
-    for (int i = 0; i < shapes.size(); i++) {
-      if (shapes.get(i) instanceof Circle) {
-        shapes.remove(i);
-        i--;
+    List<Shape> toRemove = new ArrayList<Shape>();
+    for (Shape child : shapes) {
+      if (child instanceof Circle) {
+        toRemove.add(child);
       }
+      shapes.removeAll(toRemove);
     }
   }
 
