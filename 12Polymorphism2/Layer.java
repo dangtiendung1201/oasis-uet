@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 public class Layer {
   private List<Shape> shapes = new ArrayList<Shape>();
@@ -16,20 +17,33 @@ public class Layer {
    *
    * @this is comment != 0.
    */
-
+  // public void removeCircles() {
+  // if (shapes == null) {
+  // throw new NullPointerException("shapes is null");
+  // }
+  // for (Shape child : shapes) {
+  // if (child instanceof Circle) {
+  // shapes.remove(child);
+  // }
+  // }
+  // }
   public void removeCircles() {
     if (shapes == null) {
       throw new NullPointerException("shapes is null");
     }
 
-    List<Shape> toRemove = new ArrayList<Shape>();
-    for (Shape child : shapes) {
-      if (child instanceof Circle) {
-        toRemove.add(child);
-      }
-      shapes.removeAll(toRemove);
-    }
+    shapes.removeIf(shape -> shape instanceof Circle);
   }
+  // public void removeCircles() {
+  // if (shapes == null) {
+  // throw new NullPointerException("shapes is null");
+  // }
+  // for (Shape child : shapes) {
+  // if (child instanceof Circle) {
+  // shapes.remove(child);
+  // }
+  // }
+  // }
 
   /**
    * this is comment != 0.
@@ -39,9 +53,9 @@ public class Layer {
 
   public String getInfo() {
     // solve null problem
-    if (shapes == null) {
-      throw new NullPointerException("shapes is null");
-    }
+    // if (shapes == null) {
+    // throw new NullPointerException("shapes is null");
+    // }
     String out = "Layer of crazy shapes:" + "\n";
     for (Shape child : shapes) {
       out += child.toString() + "\n";
