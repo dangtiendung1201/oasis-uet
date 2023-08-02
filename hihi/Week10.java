@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 public class Week10 {
     List<String> getAllFunctions(String fileContent) {
-        List<String> result = new ArrayList<>();
         String[] lines = fileContent.split("\n");
         int count = 0;
         String[] program = new String[lines.length]; // store program without comment
@@ -35,7 +34,17 @@ public class Week10 {
         for (int i = 0; i < count; i++)
         {
             if (program[i].startsWith("import")) {
-                importName.add(program[i].substring(7, program[i].length() - 1));
+                String tmp = "";
+
+                int lastPos = program[i].length() - 2;
+                int firstPos = lastPos;
+
+                while (program[i].charAt(firstPos) != ' ') {
+                    firstPos--;
+                }
+
+                tmp = program[i].substring(firstPos + 1, lastPos + 1);
+                importName.add(tmp);
             }
         }
 
@@ -82,7 +91,7 @@ public class Week10 {
                             param += program[i].charAt(firstPos);
                             firstPos++;
                         }
-                        tmp += param + ", ";
+                        tmp += param + ",";
                     }
                     else if (program[i].charAt(firstPos) == ',')
                     {
@@ -93,33 +102,33 @@ public class Week10 {
                             param += program[i].charAt(firstPos);
                             firstPos++;
                         }
-                        tmp += param + ", ";
+                        tmp += param + ",";
                     }
                     firstPos++;
                 }
-                tmp = tmp.substring(0, tmp.length() - 2);
+                tmp = tmp.substring(0, tmp.length() - 1);
                 tmp += ")";
                 functionName.add(tmp);
             }
         }
 
-        System.out.println("package: " + pakageName);
-        System.out.println("import: ");
-        for (String s : importName) {
-            System.out.println(s);
-        }
-        System.out.println("class: " + className);
-        System.out.println("function: ");
-        for (String s : functionName) {
-            System.out.println(s);
-        }
-        
+        // System.out.println("package: " + pakageName);
+        // System.out.println("import: ");
+        // for (String s : importName) {
+        //     System.out.println(s);
+        // }
+        // System.out.println("class: " + className);
+        // System.out.println("function: ");
+        // for (String s : functionName) {
+        //     System.out.println(s);
+        // }
         
         // for (int i = 0; i < count; i++)
         // {
         //     result.add(program[i]);
         // }
-        return result;
+
+        return functionName;
         
     }
 }
