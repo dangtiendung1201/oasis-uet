@@ -14,12 +14,29 @@ public class Week10 {
         for (int i = 0; i < lines.length; i++) {
             // remove comment to progam
             lines[i] = lines[i].trim();
+            if (lines[i].length() == 0) continue;
             if (lines[i].startsWith("//") || lines[i].startsWith("/*") || lines[i].startsWith("*") || lines[i].startsWith("*/")) {
                 continue;
             }
-            else{
-                program[count] = lines[i];
-                count++;
+            program[count] = lines[i];
+            count++;
+        }
+
+        for (int i = 0; i < count; i++) {
+            if (program[i].charAt(program[i].length() - 1) == '(') {
+                // add lines ultil have '{' or ';'
+                String tmp = "";
+                int pos = i;
+                while ((program[pos].length() != 0 && program[pos].charAt(program[pos].length() - 1) != '{' && program[pos].charAt(program[pos].length() - 1) != ';') || program[pos].length() == 0) {
+                        tmp += program[pos];
+                        program[pos] = "";
+                        pos++;
+                }
+                tmp += program[pos];
+                program[pos] = "";
+                program[i] = tmp;
+                i = pos;
+                // System.out.println(tmp);
             }
         }
 
@@ -125,7 +142,7 @@ public class Week10 {
         
         // for (int i = 0; i < count; i++)
         // {
-        //     result.add(program[i]);
+        //     functionName.add(program[i]);
         // }
 
         return functionName;

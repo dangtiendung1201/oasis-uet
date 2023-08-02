@@ -21,5 +21,8 @@ public class Main {
         Week10 Test = new Week10();
         List<String> result = Test.getAllFunctions(fileContent);
         System.out.println(result);
+        // for (String string : result) {
+        //     System.out.println(string);
+        // }
     }
 }
