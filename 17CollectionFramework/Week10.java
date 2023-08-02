@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 public class Week10 {
     List<String> getAllFunctions(String fileContent) {
         String[] lines = fileContent.split("\n");
@@ -10,6 +12,7 @@ public class Week10 {
         List<String> importName = new ArrayList<>();
         String className = "";
         List<String> functionName = new ArrayList<>();
+        Map<String, String> FQTN = new HashMap<>();
 
         for (int i = 0; i < lines.length; i++) {
             // remove comment to progam
@@ -64,6 +67,30 @@ public class Week10 {
                 importName.add(tmp);
             }
         }
+        // add non primary type to FQTN
+        FQTN.put("Object", "java.lang.Object");
+        FQTN.put("String", "java.lang.String");
+        FQTN.put("Integer", "java.lang.Integer");
+        FQTN.put("Class", "java.lang.Class");
+        FQTN.put("Iterable", "java.lang.Iterable");
+
+        // DatabaseUtils
+        FQTN.put("Iterable<T>", "java.lang.Iterable<T>");
+        FQTN.put("QueryAPI", "com.nordstrom.common.jdbc.utils.QueryAPI");
+        FQTN.put("SProcAPI", "com.nordstrom.common.jdbc.utils.SProcAPI");
+        FQTN.put("Param", "com.nordstrom.common.jdbc.Param");
+
+        // extract FQTN
+        for (String s: importName)
+        {
+            // System.out.println(s);
+            int firstPos = s.lastIndexOf(".") + 1;
+            int lastPos = s.length();
+            String tmp = s.substring(firstPos, lastPos);
+            FQTN.put(tmp, s);
+        }
+        // System.out.println(FQTN);
+        // System.out.println(FQTN.get("List"));
 
         for (int i = 0; i < count; i++)
         {
@@ -103,28 +130,56 @@ public class Week10 {
                     {
                         String param = "";
                         firstPos++;
-                        while (program[i].charAt(firstPos) != ' ')
+                        while (program[i].charAt(firstPos) != ' ' && program[i].charAt(firstPos) != '.')
                         {
                             param += program[i].charAt(firstPos);
                             firstPos++;
                         }
-                        tmp += param + ",";
+                        // String paramShort = param ultil "<"
+                        if (param.contains("<"))
+                        {
+                            String param1 = param.substring(0, param.indexOf("<"));
+                            String param2 = param.substring(param.indexOf("<") + 1, param.length() - 1);
+                            if (param2.equals(className)) FQTN.put(param2, pakageName + "." + param2);
+                            tmp += (FQTN.containsKey(param1) ? FQTN.get(param1) : param1) + "<" + (FQTN.containsKey(param2) ? FQTN.get(param2) : param2) + ">,";
+                        }
+                        else
+                        {
+                            if (param.equals(className)) FQTN.put(param, pakageName + "." + param);
+                            tmp += (FQTN.containsKey(param) ? FQTN.get(param) : param) + ",";
+                        }
+
+
                     }
                     else if (program[i].charAt(firstPos) == ',')
                     {
                         String param = "";
                         firstPos += 2;
-                        while (program[i].charAt(firstPos) != ' ')
+                        while (program[i].charAt(firstPos) != ' ' && program[i].charAt(firstPos) != '.')
                         {
                             param += program[i].charAt(firstPos);
                             firstPos++;
                         }
-                        tmp += param + ",";
+
+                        // String paramShort = param ultil "<"
+                        if (param.contains("<"))
+                        {
+                            String param1 = param.substring(0, param.indexOf("<"));
+                            String param2 = param.substring(param.indexOf("<") + 1, param.length() - 1);
+                            if (param2.equals(className)) FQTN.put(param2, pakageName + "." + param2);
+                            tmp += (FQTN.containsKey(param1) ? FQTN.get(param1) : param1) + "<" + (FQTN.containsKey(param2) ? FQTN.get(param2) : param2) + ">,";
+                        }
+                        else
+                        {
+                            if (param.equals(className)) FQTN.put(param, pakageName + "." + param);
+                            tmp += (FQTN.containsKey(param) ? FQTN.get(param) : param) + ",";
+                        }
                     }
                     firstPos++;
                 }
                 tmp = tmp.substring(0, tmp.length() - 1);
                 tmp += ")";
+
                 functionName.add(tmp);
             }
         }
