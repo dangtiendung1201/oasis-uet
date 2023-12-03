@@ -5,41 +5,53 @@ public class Circle {
     private String color;
 
     /**
-     * Constructor.
+     * Default constructor.
      */
     public Circle() {
         radius = 1.0;
         color = "red";
     }
 
+    /**
+     * Constructor with radius.
+     */
     public Circle(double radius) {
         this.radius = radius;
         color = "red";
     }
 
+    /**
+     * Constructor with radius and color.
+     */
     public Circle(double radius, String color) {
         this.radius = radius;
         this.color = color;
     }
 
     /**
-     * Getter.
+     * Get radius.
      */
     public double getRadius() {
         return radius;
     }
 
+    /**
+     * Set radius.
+     */
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    /**
+     * Get color.
+     */
     public String getColor() {
         return color;
     }
 
     /**
-     * Setter.
+     * Set color.
      */
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-    
     public void setColor(String color) {
         this.color = color;
     }
@@ -52,7 +64,7 @@ public class Circle {
     }
 
     /**
-     * Print.
+     * Print information.
      */
     public String toString() {
         return ("Circle[radius=" + radius + ",color=" + color + "]");

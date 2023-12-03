@@ -3,7 +3,7 @@ public class Rectangle extends Shape {
     protected double length;
 
     /**
-     * Constructor.
+     * Default constructor.
      */
     public Rectangle() {
         super();
@@ -11,12 +11,18 @@ public class Rectangle extends Shape {
         length = 1.0;
     }
 
+    /**
+     * Constructor with width and length.
+     */
     public Rectangle(double width, double length) {
         super();
         this.width = width;
         this.length = length;
     }
 
+    /**
+     * Constructor with width, length, color and filled.
+     */
     public Rectangle(double width, double length, String color, boolean filled) {
         super(color, filled);
         this.width = width;
@@ -24,58 +30,52 @@ public class Rectangle extends Shape {
     }
 
     /**
-     * Getter.
+     * Get width.
      */
     public double getWidth() {
         return width;
     }
 
-    public double getLength() {
-        return length;
-    }
-
     /**
-     * Setter.
+     * Set width.
      */
     public void setWidth(double width) {
         this.width = width;
     }
 
+    /**
+     * Get length.
+     */
+    public double getLength() {
+        return length;
+    }
+
+    /**
+     * Set length.
+     */
     public void setLength(double length) {
         this.length = length;
     }
 
     /**
-     * Calculate area.
+     * Get area.
      */
     public double getArea() {
         return width * length;
     }
 
     /**
-     * Calculate perimeter.
+     * Get perimeter.
      */
     public double getPerimeter() {
         return 2 * (width + length);
     }
 
     /**
-     * Error
-     */
-    public double getRadius() {
-        throw error;
-    }
-
-    public double getSide() {
-        throw error;
-    }
-
-
-    /**
-     * Print.
+     * Print information.
      */
     public String toString() {
         return ("Rectangle[width=" + width + ",length=" + length
-                + ",color=" + super.color + ",filled=" + super.filled + "]");
+                + ",color=" + color + ",filled=" + filled + "]");
     }
 }

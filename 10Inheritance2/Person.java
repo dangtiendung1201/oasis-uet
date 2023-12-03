@@ -3,7 +3,7 @@ public class Person {
     private String address;
 
     /**
-     * Constructor.
+     * Constructor with name and address.
      */
     public Person(String name, String address) {
         this.name = name;
@@ -11,29 +11,35 @@ public class Person {
     }
 
     /**
-     * Getter.
+     * Get name.
      */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get address.
+     */
     public String getAddress() {
         return address;
     }
 
     /**
-     * Setter.
+     * Set name.
      */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Set address.
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * Print.
+     * Print information.
      */
     public String toString() {
         return ("Person[name=" + name + ",address=" + address + "]");

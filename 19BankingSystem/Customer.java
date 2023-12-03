@@ -1,63 +1,83 @@
 import java.util.List;
 import java.util.ArrayList;
-public class Customer
-{
+
+public class Customer {
     private long idNumber;
     private String fullName;
-    List<Account> accountList;
+    private List<Account> accountList;
 
-    public Customer()
-    {
+    /**
+     * Default constructor.
+     */
+    public Customer() {
         idNumber = 0;
         fullName = "";
         accountList = new ArrayList<Account>();
     }
 
-    public Customer(long idNumber, String fullName)
-    {
+    /**
+     * Constructor with idNumber and fullName.
+     */
+    public Customer(long idNumber, String fullName) {
         this.idNumber = idNumber;
         this.fullName = fullName;
         accountList = new ArrayList<Account>();
     }
 
-    public String getCustomerInfo()
-    {
+    /**
+     * Get customer info.
+     */
+    public String getCustomerInfo() {
         String result = "Số CMND: " + idNumber + ". Họ tên: " + fullName + ".";
         return result;
     }
 
-    public void addAccount(Account account)
-    {
+    /**
+     * Add account to account list.
+     */
+    public void addAccount(Account account) {
         accountList.add(account);
     }
 
-    public void removeAccount(Account account)
-    {
-        accountList.remove(account);
+    /**
+     * Remove account from account list.
+     */
+    public void removeAccount(Account account) {
+        accountList.removeIf(accountItem -> accountItem.getAccountNumber() == account.getAccountNumber());
     }
 
-    public long getIdNumber()
-    {
+    /**
+     * Get ID.
+     */
+    public long getIdNumber() {
         return idNumber;
     }
 
-    public void setIdNumber(long idNumber)
-    {
+    /**
+     * Set ID.
+     */
+    public void setIdNumber(long idNumber) {
         this.idNumber = idNumber;
     }
 
-    public String getFullName()
-    {
+    /**
+     * Get name.
+     */
+    public String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName)
-    {
-            this.fullName = fullName;
+    /**
+     * Set name.
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public List<Account> getAccountList()
-    {
+    /**
+     * Get account list.
+     */
+    public List<Account> getAccountList() {
         return accountList;
     }
 }

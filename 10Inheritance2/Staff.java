@@ -3,7 +3,7 @@ public class Staff extends Person {
     private double pay;
 
     /**
-     * Constructor.
+     * Constructor with name, address, school and pay.
      */
     public Staff(String name, String address, String school, double pay) {
         super(name, address);
@@ -12,29 +12,35 @@ public class Staff extends Person {
     }
 
     /**
-     * Getter.
+     * Get school.
      */
     public String getSchool() {
         return school;
     }
 
-    public double getPay() {
-        return pay;
-    }
-
     /**
-     * Setter.
+     * Set school.
      */
     public void setSchool(String school) {
         this.school = school;
     }
 
+    /**
+     * Get pay.
+     */
+    public double getPay() {
+        return pay;
+    }
+
+    /**
+     * Set pay.
+     */
     public void setPay(double pay) {
         this.pay = pay;
     }
 
     /**
-     * Print.
+     * Print information.
      */
     public String toString() {
         return ("Staff[" + super.toString() + ",school=" + school + ",pay=" + pay + "]");

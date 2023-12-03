@@ -1,49 +1,68 @@
+import java.lang.AssertionError;
+import java.lang.Math;
+
 public abstract class Shape {
-  protected String color;
-  protected boolean filled;
+    protected String color;
+    protected boolean filled;
 
-  public Shape() {
-  }
+    /**
+     * Default construcor.
+     */
+    public Shape() {
+        color = null;
+        filled = false;
+    }
 
-  public Shape(boolean filled) {
-    this.filled = filled;
-  }
+    /**
+     * Constructor with color and filled.
+     */
+    public Shape(String color, boolean filled) {
+        this.color = color;
+        this.filled = filled;
+    }
 
-  public Shape(String color, boolean filled) {
-    this.color = color;
-    this.filled = filled;
-  }
+    /**
+     * Get color.
+     */
+    public String getColor() {
+        return color;
+    }
 
-  public String getColor() {
-    return this.color;
-  }
+    /**
+     * Set color.
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
 
-  public void setColor(String color) {
-    this.color = color;
-  }
+    /**
+     * Get filled.
+     */
+    public boolean isFilled() {
+        return filled;
+    }
 
-  public boolean isFilled() {
-    return this.filled;
-  }
+    /**
+     * Set filled.
+     */
+    public void setFilled(boolean filled) {
+        this.filled = filled;
+    }
 
-  public boolean getFilled() {
-    return this.filled;
-  }
+    /**
+     * Get area.
+     */
+    public abstract double getArea();
 
-  public void setFilled(boolean filled) {
-    this.filled = filled;
-  }
+    /**
+     * Get perimeter.
+     */
+    public abstract double getPerimeter();
 
-  public double getArea() {
-    return 0;
-  }
-
-  public double getPerimeter() {
-    return 0;
-  }
-
-  public String toString() {
-    return "Shape[" + "color=" + getColor() + ",filled=" + isFilled() + "]";
-  }
-
+    /**
+     * Print information.
+     */
+    public String toString() {
+        return ("Shape[color=" + color + ",filled=" + filled + "]");
+    }
 }

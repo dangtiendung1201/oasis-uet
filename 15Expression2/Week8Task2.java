@@ -1,30 +1,57 @@
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Scanner;
 
 public class Week8Task2 {
+    /**
+     * NullPointerException.
+     */
     public void nullPointerEx() throws NullPointerException {
-        String s = null;
-        s.length();
+        String chuyenthaibinh = null;
+        System.out.println(chuyenthaibinh.length());
     }
 
+    /**
+     * ArrayIndexOutOfBoundsException.
+     */
     public void arrayIndexOutOfBoundsEx() throws ArrayIndexOutOfBoundsException {
-        String[] arr = new String[12];
-        arr[19] = "";
+        String[] arr = new String[5];
+        arr[6] = "Chuyên Thái Bình là nhà!";
     }
 
+    /**
+     * ArithmeticException.
+     */
     public void arithmeticEx() throws ArithmeticException {
-        int a = 69 / 0;
+        int a = 12012004;
+        int b = 0;
+        System.out.println(a / b);
     }
 
+    /**
+     * FileNotFoundException.
+     */
     public void fileNotFoundEx() throws FileNotFoundException {
-        FileReader file = new FileReader("uetso1.hustga");
+        File file = new File("uetuyetvoi.huste");
+        Scanner sc = new Scanner(file);
+        sc.close();
     }
 
+    /**
+     * IOException.
+     */
     public void ioEx() throws IOException {
-        FileReader file = new FileReader("uetso1.hustga");
+        URL url = new URL("https://uet.vnu.edu.vn/HUSTgahonUET");
+        InputStream is = url.openStream();
+        is.close();
     }
 
+    /**
+     * NullPointerException Test.
+     */
     public String nullPointerExTest() {
         try {
             nullPointerEx();
@@ -34,6 +61,9 @@ public class Week8Task2 {
         }
     }
 
+    /**
+     * ArrayIndexOutOfBoundsException Test.
+     */
     public String arrayIndexOutOfBoundsExTest() {
         try {
             arrayIndexOutOfBoundsEx();
@@ -43,15 +73,21 @@ public class Week8Task2 {
         }
     }
 
+    /**
+     * ArithmeticException Test.
+     */
     public String arithmeticExTest() {
         try {
             arithmeticEx();
             return "Không có lỗi";
-        } catch (Exception e) {
+        } catch (ArithmeticException e) {
             return "Lỗi Arithmetic";
         }
     }
 
+    /**
+     * FileNotFoundException Test.
+     */
     public String fileNotFoundExTest() {
         try {
             fileNotFoundEx();
@@ -61,11 +97,14 @@ public class Week8Task2 {
         }
     }
 
+    /**
+     * IOException Test.
+     */
     public String ioExTest() {
         try {
             ioEx();
             return "Không có lỗi";
-        } catch (Exception e) {
+        } catch (IOException e) {
             return "Lỗi IO";
         }
     }

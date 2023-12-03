@@ -2,72 +2,63 @@ public class Circle extends Shape {
     protected double radius;
 
     /**
-     * Constructor.
+     * Default constructor.
      */
     public Circle() {
         super();
         radius = 1.0;
     }
 
+    /**
+     * Constructor with radius.
+     */
     public Circle(double radius) {
         super();
         this.radius = radius;
     }
 
+    /**
+     * Constructor with radius, color and filled.
+     */
     public Circle(double radius, String color, boolean filled) {
         super(color, filled);
         this.radius = radius;
     }
 
     /**
-     * Getter.
+     * Get radius.
      */
     public double getRadius() {
         return radius;
     }
 
     /**
-     * Setter.
+     * Set radius.
      */
     public void setRadius(double radius) {
         this.radius = radius;
     }
 
     /**
-     * Calculate area.
+     * Get area.
      */
     public double getArea() {
         return radius * radius * Math.PI;
     }
 
     /**
-     * Calculate perimeter.
+     * Get perimeter.
      */
     public double getPerimeter() {
         return 2.0 * Math.PI * radius;
     }
 
     /**
-     * Error
-     */
-    public double getSide() {
-        throw error;
-    }
-
-    public double getWidth() {
-        throw error;
-    }
-
-    public double getLength() {
-        throw error;
-    }
-
-    /**
-     * Print.
+     * Print information.
      */
     public String toString() {
         return ("Circle[" + "radius=" + radius
-        + ",color=" + super.color + ",filled=" + super.filled + "]");
+        + ",color=" + color + ",filled=" + filled + "]");
     }
 
 }

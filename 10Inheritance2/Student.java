@@ -4,7 +4,7 @@ public class Student extends Person {
     private double fee;
 
     /**
-     * Constructor.
+     * Constructor with name, address, program, year and fee.
      */
     public Student(String name, String address, String program, int year, double fee) {
         super(name, address);
@@ -14,37 +14,49 @@ public class Student extends Person {
     }
 
     /**
-     * Getter.
+     * Get program.
      */
     public String getProgram() {
         return program;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public double getFee() {
-        return fee;
-    }
-
     /**
-     * Setter.
+     * Set program.
      */
     public void setProgram(String program) {
         this.program = program;
     }
 
+    /**
+     * Get year.
+     */
+    public int getYear() {
+        return year;
+    }
+
+    /**
+     * Set year.
+     */
     public void setYear(int year) {
         this.year = year;
     }
 
+    /**
+     * Get fee.
+     */
+    public double getFee() {
+        return fee;
+    }
+
+    /**
+     * Set fee.
+     */
     public void setFee(double fee) {
         this.fee = fee;
     }
 
     /**
-     * Print.
+     * Print information.
      */
     public String toString() {
         return ("Student[" + super.toString() + ",program="

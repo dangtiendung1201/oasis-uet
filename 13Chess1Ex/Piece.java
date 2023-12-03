@@ -20,15 +20,15 @@ public abstract class Piece {
     public abstract boolean canMove(Board board, int x, int y);
 
     public int getCoordinatesX() {
-        return this.coordinatesX;
+        return coordinatesX;
     }
 
     public int getCoordinatesY() {
-        return this.coordinatesY;
+        return coordinatesY;
     }
 
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     public void setCoordinatesX(int x) {

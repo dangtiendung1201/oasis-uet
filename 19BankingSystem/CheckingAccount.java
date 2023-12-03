@@ -1,17 +1,37 @@
-public class CheckingAccount extends Account
-{
-    public CheckingAccount(long accountNumber, double balance)
-    {
+public class CheckingAccount extends Account {
+    /**
+     * Default constructor.
+     */
+    public CheckingAccount() {
+        super();
+    }
+
+    /**
+     * Constructor with accountNumber and balance.
+     */
+    public CheckingAccount(long accountNumber, double balance) {
         super(accountNumber, balance);
     }
 
-    public void withdraw(double amount) throws BankException
-    {
-        doWithdrawing(amount);
+    /**
+     * Withdraw.
+     */
+    public void withdraw(double amount) {
+        try {
+            doWithdrawing(amount);
+        } catch (InsufficientFundsException | InvalidFundingAmountException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void deposit(double amount) throws BankException
-    {
-        doDepositing(amount);
+    /**
+     * Deposit.
+     */
+    public void deposit(double amount) {
+        try {
+            doDepositing(amount);
+        } catch (InsufficientFundsException | InvalidFundingAmountException e) {
+            e.printStackTrace();
+        }
     }
 }

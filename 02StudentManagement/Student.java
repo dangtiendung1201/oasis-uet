@@ -1,47 +1,67 @@
 public class Student {
-
-    // TODO: khai bao cac thuoc tinh cho Student
     private String name;
     private String id;
     private String group;
     private String email;
 
-    // TODO: khai bao cac phuong thuc getter cho Student
+    /**
+     * Get name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get ID.
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Get group.
+     */
     public String getGroup() {
         return group;
     }
 
+    /**
+     * Get email.
+     */
     public String getEmail() {
         return email;
     }
 
-    // TODO: khai bao cac phuong thuc setter cho Student
+    /**
+     * Set name.
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Set ID.
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Set group.
+     */
     public void setGroup(String group) {
         this.group = group;
     }
 
+    /**
+     * Set email.
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * Constructor 1.
+     * Default constructor.
      */
     Student() {
         this.name = "Student";
@@ -51,7 +71,7 @@ public class Student {
     }
 
     /**
-     * Constructor 2.
+     * Constructor with name, id and email.
      */
     Student(String name, String id, String email) {
         this.name = name;
@@ -61,7 +81,7 @@ public class Student {
     }
 
     /**
-     * Constructor 3.
+     * Copy constructor.
      */
     Student(Student s) {
         this.name = s.name;
@@ -71,7 +91,7 @@ public class Student {
     }
     
     /**
-     * Constructor 4.
+     * Constructor with name, id, group and email.
      */
     Student(String name, String id, String group, String email) {
         this.name = name;

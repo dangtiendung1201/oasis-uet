@@ -1,45 +1,71 @@
 public class Person implements Comparable<Person> {
-    // POJO class
     private String name;
     private int age;
-    private String adress;
+    private String address;
 
+    /**
+     * Default constructor.
+     */
     public Person() {
         this.name = "";
         this.age = 0;
-        this.adress = "";
+        this.address = "";
     }
 
-    public Person(String name, int age, String adress) {
+    /**
+     * Constructor with name, age and address.
+     */
+    public Person(String name, int age, String address) {
         this.name = name;
         this.age = age;
-        this.adress = adress;
+        this.address = address;
     }
 
+    /**
+     * Get name.
+     */
     public String getName() {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
+    /**
+     * Set name.
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Get age.
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Set age.
+     */
     public void setAge(int age) {
         this.age = age;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    /**
+     * Get address.
+     */
+    public String getAddress() {
+        return address;
     }
 
+    /**
+     * Set address.
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * Compare.
+     */
     public int compareTo(Person person) {
         if (this.name.compareTo(person.name) == 0) {
             return this.age - person.age;

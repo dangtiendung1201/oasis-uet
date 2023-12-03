@@ -10,6 +10,7 @@ public class Main {
         layer.addShape(new Circle(new Point(1, 2), 3, "blue", true));
 
         layer.removeCircles();
+        layer.removeDuplicates();
         System.out.println(layer.getInfo());
         // layer.getInfo();
     }

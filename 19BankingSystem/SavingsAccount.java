@@ -1,23 +1,46 @@
-public class SavingsAccount extends Account
-{
-    public SavingsAccount(long accountNumber, double balance)
-    {
+public class SavingsAccount extends Account {
+    private static double withdrawLimit = 1000;
+    private static double depositLimit = 5000;
+
+    /**
+     * Default constructor.
+     */
+    public SavingsAccount() {
+        super();
+    }
+
+    /**
+     * Constructor with accountNumber and balance.
+     */
+    public SavingsAccount(long accountNumber, double balance) {
         super(accountNumber, balance);
     }
 
-    public void withdraw(double amount) throws BankException
-    {
-        if (amount > balance)
-            throw new InsufficientFundsException(accountNumber, amount);
-        if (amount > 1000)
+    /**
+     * Withdraw.
+     */
+    public void withdraw(double amount) {
+        if (amount > withdrawLimit)
             throw new InvalidFundingAmountException(amount);
-        doWithdrawing(amount);
+
+        try {
+            doWithdrawing(amount);
+        } catch (InsufficientFundsException | InvalidFundingAmountException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void deposit(double amount) throws BankException
-    {
-        if (amount > 5000)
+    /**
+     * Deposit.
+     */
+    public void deposit(double amount) {
+        if (amount > depositLimit)
             throw new InvalidFundingAmountException(amount);
-        doDepositing(amount);
+
+        try {
+            doDepositing(amount);
+        } catch (InsufficientFundsException | InvalidFundingAmountException e) {
+            e.printStackTrace();
+        }
     }
 }
